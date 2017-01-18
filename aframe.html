@@ -10,10 +10,11 @@
 <a-scene>
 
   <a-assets>
-    <a-mixin id="cube" geometry="primitive: box; height: 1; width: 1; depth: 1" material="color: blue"></a-mixin>
+    <img id="cube-sea-texture" src="media/textures/cube-sea.png">
+    <a-mixin id="cube" geometry="primitive: box; height: 1; width: 1; depth: 1" material="src: #cube-sea-texture"></a-mixin>
   </a-assets>
 
-  <a-sky color="#FFFFFF"></a-sky>
+  <a-sky color="rgb(10%,20%,30%)"></a-sky>
 
   <a-entity id="cube-sea">
     <a-entity position="0 0 -2" mixin="cube"></a-entity>
