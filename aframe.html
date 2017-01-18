@@ -1,0 +1,28 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+  <title>webvr-x-samples • aframe</title>
+<script src="js/aframe.min.js"></script>
+</head>
+<body>
+
+<a-scene>
+
+  <a-assets>
+    <a-mixin id="cube" geometry="primitive: box; height: 1; width: 1; depth: 1" material="color: blue"></a-mixin>
+  </a-assets>
+
+  <a-sky color="#FFFFFF"></a-sky>
+
+  <a-entity id="cube-sea">
+    <a-entity position="0 0 -2" mixin="cube"></a-entity>
+  </a-entity>
+
+  <a-entity position="0 0 0" camera="userHeight: 0" look-controls>
+  </a-entity>
+
+</a-scene>
+
+</body>
+</html>
