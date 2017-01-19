@@ -7,23 +7,52 @@
 </head>
 <body>
 
-<a-scene>
+<a-scene antialias="true">
 
   <a-assets>
-    <img id="cube-sea-texture" src="media/textures/cube-sea.png">
-    <a-mixin id="cube" geometry="primitive: box; height: 1; width: 1; depth: 1" material="src: #cube-sea-texture"></a-mixin>
+    <img id="cube-sea-texture"
+      src="media/textures/cube-sea.png" preload="auto">
+    <a-mixin id="cube"
+      geometry="primitive: box; height: 0.4; width: 0.4; depth: 0.4; mergeTo: #cubeSea; skipCache: true; buffer: false;"
+      material="src: #cube-sea-texture; roughness: 1.0; metalness: 0.2;"></a-mixin>
   </a-assets>
 
-  <a-sky color="rgb(10%,20%,30%)"></a-sky>
+  <a-sky id="bg" color="rgb(10%,20%,30%)"></a-sky>
 
-  <a-entity id="cube-sea">
-    <a-entity position="0 0 -2" mixin="cube"></a-entity>
-  </a-entity>
+  <a-entity id="cubeSea"
+    d-geometry="primitive: box; buffer: false; skipCache: true;"
+    material="src: #cube-sea-texture; roughness: 1.0; metalness: 0.2;"></a-entity>
 
-  <a-entity position="0 0 0" camera="userHeight: 0" look-controls>
+  <a-entity
+    position="0 0 0" camera="userHeight: 0" look-controls>
   </a-entity>
 
 </a-scene>
+
+<script>
+var sceneEl = document.querySelector('a-scene');
+var cubeEl;
+
+var gridSize = 10;
+
+for ( var x = 0; x < gridSize; ++x ) {
+  for ( var y = 0; y < gridSize; ++y ) {
+    for ( var z = 0; z < gridSize; ++z ) {
+      var _x = x - gridSize/2, _y = y - gridSize/2, _z = z - gridSize/2;
+      if ( _x == 0 && _y == 0 && _z == 0 ) {
+        continue;
+      }
+
+      cubeEl = document.createElement('a-entity');
+      cubeEl.setAttribute('mixin', 'cube');
+      cubeEl.setAttribute('position', { x: _x, y: _y, z: _z });
+
+      sceneEl.appendChild(cubeEl);
+    }
+  }
+}
+
+</script>
 
 </body>
 </html>
