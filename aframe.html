@@ -7,7 +7,7 @@
 </head>
 <body>
 
-<a-scene antialias="true">
+<a-scene antialias="true" stats inspector>
 
   <a-assets>
     <img id="cube-sea-texture"
@@ -33,7 +33,7 @@
 var sceneEl = document.querySelector('a-scene');
 var cubeEl;
 
-var gridSize = 10;
+var gridSize = 5; // 10
 
 for ( var x = 0; x < gridSize; ++x ) {
   for ( var y = 0; y < gridSize; ++y ) {
