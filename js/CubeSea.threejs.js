@@ -57,7 +57,6 @@ function CubeSea( texture, gridSize, cubeSize, lit, merge ) {
     for (var i = 0; i < positions.length; i++) {
       var _rCube = rCube.clone();
       _rCube.position.fromArray( positions[i] );
-      console.log('test');
       rotatingCubes.add( _rCube );
     }
 

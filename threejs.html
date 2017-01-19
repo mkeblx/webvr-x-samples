@@ -42,6 +42,7 @@ a {
   var effect, controls;
 
   var room;
+  var color;
   var isMouseDown = false;
 
   var cubeSea;
@@ -75,8 +76,10 @@ a {
 
     setupScene();
 
+    color = new THREE.Color();
+
     renderer = new THREE.WebGLRenderer( { antialias: true } );
-    renderer.setClearColor( new THREE.Color().setRGB(0.1, 0.2, 0.3) );
+    renderer.setClearColor( color.setRGB(0.1, 0.2, 0.3) );
     renderer.setPixelRatio( window.devicePixelRatio );
     renderer.setSize( window.innerWidth, window.innerHeight );
     renderer.sortObjects = false;
@@ -93,6 +96,13 @@ a {
     //
 
     window.addEventListener( 'resize', onWindowResize, false );
+
+    renderer.domElement.addEventListener( 'click', function(){
+      renderer.setClearColor(
+        color.setRGB(
+          Math.random()*0.5, Math.random()*0.5, Math.random()*0.5)
+      );
+    }, false );
 
   }
 
