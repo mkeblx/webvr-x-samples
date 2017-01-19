@@ -44,6 +44,8 @@ a {
   var room;
   var isMouseDown = false;
 
+  var cubeSea;
+
   var INTERSECTED;
   var crosshair;
 
@@ -96,7 +98,7 @@ a {
 
   function setupScene() {
 
-    var cubeSea = CubeSea( 'media/textures/cube-sea.png', 10, 0.4, true, true );
+    cubeSea = CubeSea( 'media/textures/cube-sea.png', 10, 0.4, true, true );
     scene.add( cubeSea );
 
     scene.add( new THREE.HemisphereLight( 0x999999, 0x333333, 0.9 ) );
@@ -129,6 +131,7 @@ a {
 
   function update( t ) {
 
+    cubeSea.update( t );
     controls.update();
 
   }
