@@ -4,10 +4,10 @@ CubeSea for three.js
 
 // lit : lambert or flat material
 // merge : merge geometry into single mesh
-function CubeSea( gridSize, cubeSize, lit, merge ) {
+function CubeSea( texture, gridSize, cubeSize, lit, merge ) {
   var sea = new THREE.Object3D();
 
-  new THREE.TextureLoader().load( 'media/textures/cube-sea.png', function( map ){
+  new THREE.TextureLoader().load( texture, function( map ){
 
   var _geo = new THREE.Geometry();
   var geo = new THREE.BoxGeometry( cubeSize, cubeSize, cubeSize );
