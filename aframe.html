@@ -21,7 +21,6 @@
 
     <a-mixin id="webvr-mat"
       material="src: #cube-sea-texture; roughness: 1.0; metalness: 0.2;"></a-mixin>
-
   </a-assets>
 
   <a-sky id="bg" color="rgb(10%,20%,30%)"></a-sky>
@@ -35,6 +34,14 @@
     <a-entity mixin="small-cube webvr-mat" position="0 0 -0.8"></a-entity>
     <a-entity mixin="small-cube webvr-mat" position="0.8 0 0"></a-entity>
     <a-entity mixin="small-cube webvr-mat" position="-0.8 0 0"></a-entity>
+
+    <a-animation
+      attribute="rotation"
+      dur="12000"
+      fill="forwards"
+      to="0 360 0"
+      easing="linear"
+      repeat="indefinite"></a-animation>
   </a-entity>
 
   <a-entity
