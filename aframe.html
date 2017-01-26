@@ -12,9 +12,16 @@
   <a-assets>
     <img id="cube-sea-texture"
       src="media/textures/cube-sea.png" preload="auto">
+
     <a-mixin id="cube"
-      geometry="primitive: box; height: 0.4; width: 0.4; depth: 0.4; mergeTo: #cubeSea; skipCache: true; buffer: false;"
+      geometry="primitive: box; height: 0.4; width: 0.4; depth: 0.4; mergeTo: #cubeSea; skipCache: true; buffer: false;"></a-mixin>
+
+    <a-mixin id="small-cube"
+      geometry="primitive: box; height: 0.1; width: 0.1; depth: 0.1"></a-mixin>
+
+    <a-mixin id="webvr-mat"
       material="src: #cube-sea-texture; roughness: 1.0; metalness: 0.2;"></a-mixin>
+
   </a-assets>
 
   <a-sky id="bg" color="rgb(10%,20%,30%)"></a-sky>
@@ -23,8 +30,15 @@
     d-geometry="primitive: box; buffer: false; skipCache: true;"
     material="src: #cube-sea-texture; roughness: 1.0; metalness: 0.2;"></a-entity>
 
+  <a-entity id="rotatingCubes" position="0 0.25 0">
+    <a-entity mixin="small-cube webvr-mat" position="0 0 0.8"></a-entity>
+    <a-entity mixin="small-cube webvr-mat" position="0 0 -0.8"></a-entity>
+    <a-entity mixin="small-cube webvr-mat" position="0.8 0 0"></a-entity>
+    <a-entity mixin="small-cube webvr-mat" position="-0.8 0 0"></a-entity>
+  </a-entity>
+
   <a-entity
-    position="0 0 0" camera="userHeight: 0" look-controls>
+    position="0 0 0" camera="userHeight: 0" look-controls wasd-controls>
   </a-entity>
 
 </a-scene>
@@ -33,7 +47,7 @@
 var sceneEl = document.querySelector('a-scene');
 var cubeEl;
 
-var gridSize = 5; // 10
+var gridSize = 6; // 10
 
 for ( var x = 0; x < gridSize; ++x ) {
   for ( var y = 0; y < gridSize; ++y ) {
@@ -44,7 +58,7 @@ for ( var x = 0; x < gridSize; ++x ) {
       }
 
       cubeEl = document.createElement('a-entity');
-      cubeEl.setAttribute('mixin', 'cube');
+      cubeEl.setAttribute('mixin', 'cube webvr-mat');
       cubeEl.setAttribute('position', { x: _x, y: _y, z: _z });
 
       sceneEl.appendChild(cubeEl);
