@@ -8,20 +8,26 @@
 </head>
 <body>
 <h1>X3DOM</h1>
-<p>sample coming soon</p><br>
-<a href="https://www.x3dom.org">X3DOM</a>
 
-<x3d width='500px' height='400px'>
+<x3d width='800px' height='600px'>
   <scene>
+
+    <navigationInfo type='"examine" "any"' id="navType"></navigationInfo>
+
     <shape>
-    <appearance>
-    <ImageTexture  url="media/textures/cube-sea.png"><ImageTexture/>
-    <material diffuseColor='1 0 0'></material>
-    </appearance>
-    <box></box>
+      <appearance>
+        <ImageTexture url="media/textures/cube-sea.png"></ImageTexture>
+        <material diffuseColor='1 0 0'></material>
+      </appearance>
+      <box></box>
     </shape>
+
+    <background DEF='abgnd' skyColor='0.1 0.2 0.3' />
+
   </scene>
 </x3d>
+
+<a href="https://www.x3dom.org">X3DOM</a>
 
 </body>
 </html>
