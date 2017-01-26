@@ -111,11 +111,11 @@ a {
     cubeSea = CubeSea( 'media/textures/cube-sea.png', 10, 0.4, true, true );
     scene.add( cubeSea );
 
-    scene.add( new THREE.HemisphereLight( 0x999999, 0x333333, 0.9 ) );
-
-    var light = new THREE.DirectionalLight( 0xffffff );
+    var light = new THREE.DirectionalLight( 0xcccccc );
     light.position.set( 1, 0.7, 0.9 ).normalize();
     scene.add( light );
+
+    scene.add( new THREE.AmbientLight( 0x888888 ) );
 
   }
 
